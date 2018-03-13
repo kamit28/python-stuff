@@ -1,49 +1,82 @@
+#!/usr/bin/python
+
 '''
-Created on 23 Feb. 2018
-
-@author: Amit.Kumar1
+swap method to be used by different sorting algorithms
 '''
-from array import array
-
-
 def swap(arr, i, j):
     temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
 
-
+'''
+partition method to find pivot.
+to be used by quicksort
+'''
 def partition(arr, low, high):
     pivot = arr[high]
     i = low - 1
-    for j in range(low, high - 1):
-        if(arr[j] < pivot):
-            i = i + 1;
+
+    for j in range(low, high):
+        if arr[j] < pivot:
+            i += 1
             swap(arr, i, j)
     swap(arr, i + 1, high)
     return i + 1
 
-
+'''
+The quicksort algorithm
+'''
 def quick_sort(arr, low, high):
-    if(low < high):
+    if low < high:
         pivot = partition(arr, low, high)
+
         quick_sort(arr, low, pivot - 1)
         quick_sort(arr, pivot + 1, high)
 
+'''
+The merge routine for merge sort
+'''
+def merge_lists(arr, low, mid, high):
+    n1 = mid - low + 1
+    n2 = high - mid
 
-def bubble_sort(arr):
-    arr_len = len(arr)
-    for i in range(0, arr_len - 1):
-        for j in range(i + 1, arr_len) :
-            if(arr[i] > arr[j]):
-                swap(arr, i, j)
+    l_temp = [0] * n1
+    r_temp = [0] * n2
 
+    for i in range(0, n1):
+        l_temp[i] = arr[low + i]
+    for i in range(0, n2):
+        r_temp[i] = arr[mid + 1 + i]
 
-arr = [5, 3, 1, 4, 0, 7, 9, 2]
+    i = 0
+    j = 0
+    k = low
 
-bubble_sort(arr)
-print(arr)
+    while i < n1 and j < n2:
+        if l_temp[i] < r_temp[j]:
+            arr[k] = l_temp[i]
+            i += 1
+        else:
+            arr[k] = r_temp[j]
+            j += 1
+        k += 1
 
-arr = [5, 3, 1, 4, 0, 7, 9, 2]
-quick_sort(arr, 0, len(arr) - 1)
-print(arr)
+    while i < n1:
+        arr[k] = l_temp[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = r_temp[j]
+        j += 1
+        k += 1
+
+'''
+The merge sort algorithm
+'''
+def merge_sort(arr, low,  high):
+    if high > low:
+        mid = (low + high) / 2
+        merge_sort(arr, low, mid)
+        merge_sort(arr, mid+1, high)
+        merge_lists(arr, low, mid, high)
 
