@@ -1,14 +1,6 @@
 #!/usr/bin/python
 
 '''
-swap method to be used by different sorting algorithms
-'''
-def swap(arr, i, j):
-    temp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = temp
-
-'''
 partition method to find pivot.
 to be used by quicksort
 '''
@@ -19,8 +11,8 @@ def partition(arr, low, high):
     for j in range(low, high):
         if arr[j] < pivot:
             i += 1
-            swap(arr, i, j)
-    swap(arr, i + 1, high)
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i+1], arr[high] = arr[high], arr[i + 1]
     return i + 1
 
 '''

@@ -7,6 +7,7 @@ import time
 
 from collections import deque
 from functools import reduce
+from datetime import datetime
 
 def reverse_text10(text_t):
     return reduce(lambda x, y : y + x, text_t)
@@ -63,12 +64,6 @@ def reverse_text2(iterable):
     return ''.join(d)
 
 
-def swap(arr, i, j):
-    temp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = temp
-
-
 def reverse_text1(text_t):
     if len(text_t) <= 1:
         return text_t
@@ -84,10 +79,16 @@ def reverse_text0(text_t):
         str_list[len_str - i - 1] = text_t[i]
     return ''.join(str_list)
 
+def reverse_text(text_t):
+    return text_t[::-1]
+
+current_milli_time = lambda: int(round(time.time() * 1000))
 
 input_str = input("Enter a String: ")
-start_time = time.time()
-for i in range(0, 5000):
-    reverse_text0(input_str)
-end_time = time.time()
+for i in range(0, 50000):
+    reverse_text(input_str)
+start_time = current_milli_time()
+for i in range(0, 10000):
+    reverse_text(input_str)
+end_time = current_milli_time()
 print(end_time - start_time)
