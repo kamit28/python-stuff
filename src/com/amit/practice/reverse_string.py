@@ -7,7 +7,6 @@ import time
 
 from collections import deque
 from functools import reduce
-from datetime import datetime
 
 def reverse_text10(text_t):
     return reduce(lambda x, y : y + x, text_t)
