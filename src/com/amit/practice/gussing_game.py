@@ -9,7 +9,7 @@ while True:
     if new_guess == True:
         our_num = random.randint(1, 10)
         new_guess = False
-    user_input = raw_input("Guess a number between 1 and 9 (both inclusive) or type 'exit' to exit the game: ")
+    user_input = input("Guess a number between 1 and 9 (both inclusive) or type 'exit' to exit the game: ")
     if user_input == 'exit':
         print("You have taken " + str(num_guess) + " guessess");
         break;
