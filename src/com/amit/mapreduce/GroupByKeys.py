@@ -41,12 +41,10 @@ mapReducer = MapReduce()
 def mapper(record):
     key = record["key"]
     value = record["value"]
-    # COMPLETE THE LINE BELOW BY FILLING UP THE QUESTION MARKS      
     mapReducer.emitIntermediate(key, value)
 
 
 def reducer(key, list_of_values):
-    # COMPLETE THE LINE BELOW BY FILLING UP THE QUESTION MARKS 
     mapReducer.emit((key, ','.join(sorted(list_of_values))))
 
 

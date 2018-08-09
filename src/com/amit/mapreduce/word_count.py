@@ -37,11 +37,9 @@ def mapper(record):
     value = record["value"]
     words = value.split()
     for w in words:
-      # COMPLETE THE LINE BELOW BY FILLING UP THE QUESTION MARKS        
       mapReducer.emitIntermediate(w, 1)
 
 def reducer(key, list_of_values):
-    # COMPLETE THE LINE BELOW BY FILLING UP THE QUESTION MARKS    
     total = len(list_of_values)
     mapReducer.emit((key, total))
 

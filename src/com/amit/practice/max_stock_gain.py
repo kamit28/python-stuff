@@ -10,5 +10,5 @@ def get_max_gain( prices ):
 
 my_prices = [10, 2, 20, 12, 1, 7, 9, 30, 5]
 max_gain = get_max_gain(my_prices)
-print "Maximum gain is: ", max_gain
+print("Maximum gain is: ", max_gain)
 
