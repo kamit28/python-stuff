@@ -44,7 +44,7 @@ def listen():
 #        raise
     host = socket.gethostname()
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((host, 8181))
+    server_socket.bind((host, 8182))
     
     while True:
         server_socket.listen(5)
