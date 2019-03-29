@@ -1,0 +1,22 @@
+from flask import Flask, url_for, request, redirect
+
+
+app = Flask(__name__)
+
+@app.route('/success/<name>')
+def success(name):
+    return 'welcome %s' % name
+
+@app.route('/login', methods = ['POST', 'GET'])
+def login():
+    user = ''
+    if request.method =='POST':
+        user = request.form['nm']
+    else:
+        user = request.args.get('nm')
+
+    return redirect(url_for('success', name = user))
+
+if __name__ == '__main__':
+    app.run(debug = True)
+

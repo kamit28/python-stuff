@@ -15,4 +15,4 @@ def gcd(*args):
             gcd = gcd_xy(gcd, args[i])
         return gcd
 
-#print(gcd(24, 32, 48))
+print(gcd(24, 32, 48))

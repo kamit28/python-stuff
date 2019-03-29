@@ -7,7 +7,7 @@ example for SQL Server DB access using pymssql module
 '''
 import pymssql
 
-conn = pymssql.connect("host:port", "user-name", "password", "db-name")
+conn = pymssql.connect("ESSQL004.emerging.com.au:1433", "sa", "FrclmyE!", "ehsdev")
 
 cursor = conn.cursor()
 
